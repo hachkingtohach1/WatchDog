@@ -77,9 +77,9 @@ class WatchDog extends PluginBase implements Listener {
 
     /**
      * @param Player $player
-     * @param $nameData
+     * @param string $nameData
      */
-    public function addViolations(Player $player, $nameData){
+    public function addViolations(Player $player, string $nameData){
         if(!empty($this->dataViolations[strtolower($player->getName())])){
             $this->dataViolations[strtolower($player->getName())][$nameData] += 1;
         }
