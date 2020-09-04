@@ -13,7 +13,7 @@
 
 # How to setup ?
 - This looks like the player's violation through your anticheat
-```
+```php
    WatchDog::getInstance()->createTableData([
       "killaura" => 0,
       "autoclick" => 0,
@@ -21,7 +21,7 @@
 ```
 
 - If you want more violations for players staying at the functions already available and anti-hacking
-```   
+```php
    WatchDog::getInstance()->addViolations($player, "killaura");
 ```
 # Commands
