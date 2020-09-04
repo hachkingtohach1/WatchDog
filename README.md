@@ -25,6 +25,14 @@
 ```php
    WatchDog::getInstance()->addViolations($player, "killaura");
 ```
+
+# My Server
+
+- IP: devilcry.sytes.net
+- PORT: 19132
+- Status: Online
+
+- My server also have a perfect anti-cheating system if you want to try it ? Get in now! 😊
 # Commands
 - /wd help - Show all commands watchdog
 - /wd check <player> - Check hacker is hacking 
