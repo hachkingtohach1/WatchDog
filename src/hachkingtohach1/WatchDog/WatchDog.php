@@ -20,6 +20,7 @@ declare(strict_types = 1);
 
 namespace hachkingtohach1\WatchDog;
 
+use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
