@@ -1,9 +1,10 @@
 <img src = "https://github.com/hachkingtohach1/WatchDog/blob/master/icon.png">
-# Warning
-- I need you to try it because I have not tested it on my :)
 
 # WatchDog
 - A particularly good tool for administrators to help prevent hacking and controls, upgrading to their anticheats
+
+# Warning
+- I need you to try it because I have not tested it on my :)
 
 # features
 - Banwave ✔
