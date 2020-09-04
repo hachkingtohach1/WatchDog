@@ -18,7 +18,7 @@
 
 declare(strict_types = 1);
 
-namespace hachkingtohach1\watchshit;
+namespace hachkingtohach1\WatchDog;
 
 use pocketmine\utils\TextFormat;
 use pocketmine\event\Listener;
