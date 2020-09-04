@@ -35,5 +35,5 @@
 - /wd info <player> - To show info player 
 
 # Support
-Email: pnam5005@gmail.com
-Discord: dragovn#0969 (Recommended)
+- Email: pnam5005@gmail.com
+- Discord: dragovn#0969 (Recommended)
