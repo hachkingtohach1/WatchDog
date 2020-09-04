@@ -1,0 +1,38 @@
+name: WatchDog
+main: hachkingtohach1\WatchDog\WatchDog
+version: 1.0.0
+api: 3.14.0
+author: hachkingtohach1
+commands:
+  wd:
+    description: WatchDog commands
+permissions:
+  watchdog.*:
+    default: op
+    description: Allows to control all of functions in WatchDog
+    children:
+      wd.command.*:
+        default: op
+        description: Allows to use all of commands in EconomyAPI
+        children:
+          wd.command.check:
+            default: op
+            description: Allows to check player is hacking
+          wd.command.remove:
+            default: op
+            description: Allows to remove data report for player
+          wd.command.return:
+            default: op
+            description: Allows to return normal mode
+          wd.command.report:
+            default: op
+            description: Allows to report hackers
+          wd.command.banwave:
+            default: op
+            description: Allows to start banwave
+          wd.command.addbanwave:
+            default: op
+            description: Allows to add one player into banwave
+          wd.command.info:
+            default: op
+            description: Allows to show info player
