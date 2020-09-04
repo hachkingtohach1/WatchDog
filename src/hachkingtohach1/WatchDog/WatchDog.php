@@ -28,8 +28,8 @@ use pocketmine\command\CommandSender;
 use pocketmine\event\player\PlayerJoinEvent;
 
 class WatchDog extends PluginBase implements Listener {
-	
-	public $timeBanWave = 3600;
+
+    public $timeBanWave = 3600;
 
     /**
      * @var array
@@ -44,72 +44,72 @@ class WatchDog extends PluginBase implements Listener {
     /**
      * @var array
      */
-	private $dataViolations = [];
+    private $dataViolations = [];
 
     /**
      * @var array
      */
-	private $reports = [];
-	
-	private $prefix = "[WATCHDOG] ";
-	
-	private static $instance = null;
+    private $reports = [];
+
+    private $prefix = "[WATCHDOG] ";
+
+    private static $instance = null;
 
     public function onLoad(): void{
         self::$instance = $this;
-	}
+    }
 
     /**
      * @return WatchDog
      */
     public function getInstance() : WatchDog{
-		return self::$instance;
-	}
-	
-	public function createTableData(array $data){
-		foreach($data as $check){
-			if(!is_numeric($check)){
-				$this->getLogger()->warning("Data must belong to the data float as a number!");
-			}
-		}
-		$this->tableData = $data;
-	}
+        return self::$instance;
+    }
+
+    public function createTableData(array $data){
+        foreach($data as $check){
+            if(!is_numeric($check)){
+                $this->getLogger()->warning("Data must belong to the data float as a number!");
+            }
+        }
+        $this->tableData = $data;
+    }
 
     /**
      * @param Player $player
      * @param $nameData
      */
     public function addViolations(Player $player, $nameData){
-		if(!empty($this->dataViolations[strtolower($player->getName())])){
-			$this->dataViolations[strtolower($player->getName())][$nameData] += 1;
-		}
-	}
+        if(!empty($this->dataViolations[strtolower($player->getName())])){
+            $this->dataViolations[strtolower($player->getName())][$nameData] += 1;
+        }
+    }
 
     public function onEnable(){
-		$this->banwave = [
-	        "ENABLE" => false,
-	        "PLAYERS" => [],
-		    "TIME" => $this->timeBanWave
+        $this->banwave = [
+            "ENABLE" => false,
+            "PLAYERS" => [],
+            "TIME" => $this->timeBanWave
         ];
-		$this->getScheduler()->scheduleRepeatingTask(new BanWave(), 20);
-	}
+        $this->getScheduler()->scheduleRepeatingTask(new BanWave(), 20);
+    }
 
     /**
      * @param PlayerJoinEvent $event
      */
     public function onPlayerJoinEvent(PlayerJoinEvent $event){
-		$player = $event->getPlayer();
-		if(empty($this->dataViolations[strtolower($player->getName())])){
-			$this->dataViolations[strtolower($player->getName())] = $this->tableData;
-		}
-		if(!empty($this->reports[strtolower($player->getName())])){
-			foreach($this->getServer()->getOnlinePlayers() as $playerOnline){
-				if($playerOnline->hasPermission("watchdog.warning")){
-					$player->sendMessage($this->prefix.TextFormat::RED.$player->getName()." has joined, you need check him!");
-				}
-			}
-		}
-	}
+        $player = $event->getPlayer();
+        if(empty($this->dataViolations[strtolower($player->getName())])){
+            $this->dataViolations[strtolower($player->getName())] = $this->tableData;
+        }
+        if(!empty($this->reports[strtolower($player->getName())])){
+            foreach($this->getServer()->getOnlinePlayers() as $playerOnline){
+                if($playerOnline->hasPermission("watchdog.warning")){
+                    $player->sendMessage($this->prefix.TextFormat::RED.$player->getName()." has joined, you need check him!");
+                }
+            }
+        }
+    }
 
     /**
      * @param CommandSender $sender
@@ -140,9 +140,9 @@ class WatchDog extends PluginBase implements Listener {
 							$sender->sendMessage(TextFormat::GREEN."/wd check <player>");
 							break;
 						}
-                        $sender->setGamemode(Player::SPECTATOR);
-						$targetPlayer = $this->getServer()->getPlayer($args[1]);
-					    $sender->teleport($targetPlayer->getLocation());
+					    $sender->setGamemode(Player::SPECTATOR);
+					    $targetPlayer = $this->getServer()->getPlayer($args[1]);
+						$sender->teleport($targetPlayer->getLocation());
 						$sender->sendMessage(TextFormat::GREEN."Usage: /wd return - to return normal mode");
 					    break;
 					case "0f6969d7052da9261e31ddb6e88c136e":
@@ -162,9 +162,9 @@ class WatchDog extends PluginBase implements Listener {
 					        $sender->sendMessage(TextFormat::RED."You don't have permission!");
 					        break;
 						}
-                        $sender->setGamemode($this->getServer()->getDefaultGamemode());
-                        $sender->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
-                        $sender->sendMessage(TextFormat::GREEN."You has returned normal mode");						
+					    $sender->setGamemode($this->getServer()->getDefaultGamemode());
+					    $sender->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
+					    $sender->sendMessage(TextFormat::GREEN."You has returned normal mode");
 					    break;
 					case "e98d2f001da5678b39482efbdf5770dc":
 					    if(!$sender->hasPermission("watchdog.cmd.report")){
@@ -201,7 +201,7 @@ class WatchDog extends PluginBase implements Listener {
 							$sender->sendMessage(TextFormat::GREEN."/wd banwave <true|false>");
 							break;
 						}
-				        $result = null;
+						$result = null;
 						switch($args[1]){
 							case "true": 
 							    $result = true; 
