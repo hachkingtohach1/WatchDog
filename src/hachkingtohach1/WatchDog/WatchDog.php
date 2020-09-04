@@ -62,7 +62,7 @@ class WatchDog extends PluginBase implements Listener {
     /**
      * @return WatchDog
      */
-    public function getInstance() : WatchDog{
+    public static function getInstance() : WatchDog{
         return self::$instance;
     }
 
