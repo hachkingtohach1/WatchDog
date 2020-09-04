@@ -2,6 +2,7 @@
 
 # WatchDog
 - A particularly good tool for administrators to help prevent hacking and controls, upgrading to their anticheats
+- What effect does this tool have it so that we can check the offending information of players easily and put them in banwave easily
 
 # Warning
 - I need you to try it because I have not tested it on my :)
