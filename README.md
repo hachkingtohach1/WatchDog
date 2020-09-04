@@ -1,3 +1,4 @@
+<img src = "https://github.com/hachkingtohach1/WatchDog/blob/master/icon.png">
 # WatchDog
 - A particularly good tool for administrators to help prevent hacking and controls, upgrading to their anticheats
 
