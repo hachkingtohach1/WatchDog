@@ -91,6 +91,7 @@ class WatchDog extends PluginBase implements Listener {
 	        "PLAYERS" => [],
 		    "TIME" => $this->timeBanWave
         ];
+		$this->getScheduler()->scheduleRepeatingTask(new BanWave(), 20);
 	}
 
     /**
@@ -160,10 +161,6 @@ class WatchDog extends PluginBase implements Listener {
 					    if(!$sender->hasPermission("watchdog.cmd.return")){
 					        $sender->sendMessage(TextFormat::RED."You don't have permission!");
 					        break;
-						}
-					    if(!isset($args[1])){
-							$sender->sendMessage(TextFormat::GREEN."/wd return");
-							break;
 						}
                         $sender->setGamemode($this->getServer()->getDefaultGamemode());
                         $sender->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
