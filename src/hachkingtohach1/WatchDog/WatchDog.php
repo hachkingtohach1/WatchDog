@@ -141,11 +141,13 @@ class WatchDog extends PluginBase implements Listener {
 							$sender->sendMessage(TextFormat::GREEN."/wd check <player>");
 							break;
 						}
-					    $sender->setGamemode(Player::SPECTATOR);
-					    $targetPlayer = $this->getServer()->getPlayer($args[1]);
+					    if($sender instanceof Player){
+					        $sender->setGamemode(Player::SPECTATOR);
+					        $targetPlayer = $this->getServer()->getPlayer($args[1]);
 						$sender->teleport($targetPlayer->getLocation());
 						$sender->sendMessage(TextFormat::GREEN."Usage: /wd return - to return normal mode");
-					    break;
+					    }
+				            break;
 					case "0f6969d7052da9261e31ddb6e88c136e":
 					    if(!$sender->hasPermission("watchdog.cmd.remove")){
 					        $sender->sendMessage(TextFormat::RED."You don't have permission!");
@@ -162,10 +164,12 @@ class WatchDog extends PluginBase implements Listener {
 					    if(!$sender->hasPermission("watchdog.cmd.return")){
 					        $sender->sendMessage(TextFormat::RED."You don't have permission!");
 					        break;
-						}
-					    $sender->setGamemode($this->getServer()->getDefaultGamemode());
-					    $sender->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
-					    $sender->sendMessage(TextFormat::GREEN."You has returned normal mode");
+					    }
+					    if($sender instanceof Player){
+					        $sender->setGamemode($this->getServer()->getDefaultGamemode());
+					        $sender->teleport($this->getServer()->getDefaultLevel()->getSpawnLocation());
+					        $sender->sendMessage(TextFormat::GREEN."You has returned normal mode");
+					    }
 					    break;
 					case "e98d2f001da5678b39482efbdf5770dc":
 					    if(!$sender->hasPermission("watchdog.cmd.report")){
